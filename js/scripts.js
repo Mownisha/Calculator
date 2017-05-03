@@ -21,16 +21,45 @@ var rem=function(num1,num2)
   return num1%num2;
 };
 
-var num1=parseInt(prompt("Enter a number: "));
-var num2=parseInt(prompt("Enter another number: "));
+$(document).ready(function() {
 
-var r1=(add(num1,num2));
-alert("The result of addition is "+r1);
-var r2=(sub(num1,num2));
-alert("The result of subtraction is "+r2);
-var r3=(mul(num1,num2));
-alert("The result of multiplication is "+r3);
-var r4=(div(num1,num2));
-alert("The result of division is "+r4);
-var r5=(rem(num1,num2));
-alert("The remainder of division is "+r5);
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    var num1=parseInt($("#add1").val());
+    var num2=parseInt($("#add2").val());
+    var result= add(num1,num2);
+    $("#output1").text(result);
+  });
+
+  $("form#sub").submit(function(event) {
+    event.preventDefault();
+    var num1=parseInt($("#sub1").val());
+    var num2=parseInt($("#sub2").val());
+    var result= sub(num1,num2);
+    $("#output2").text(result);
+  });
+
+  $("form#mul").submit(function(event) {
+    event.preventDefault();
+    var num1=parseInt($("#mul1").val());
+    var num2=parseInt($("#mul2").val());
+    var result= mul(num1,num2);
+    $("#output3").text(result);
+  });
+
+  $("form#div").submit(function(event) {
+    event.preventDefault();
+    var num1=parseInt($("#div1").val());
+    var num2=parseInt($("#div2").val());
+    var result= div(num1,num2);
+    $("#output4").text(result);
+  });
+
+  $("form#rem").submit(function(event) {
+    event.preventDefault();
+    var num1=parseInt($("#rem1").val());
+    var num2=parseInt($("#rem2").val());
+    var result= rem(num1,num2);
+    $("#output5").text(result);
+  });
+});
